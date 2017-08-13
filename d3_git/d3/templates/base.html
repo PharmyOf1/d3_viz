@@ -1,146 +1,90 @@
 {% load staticfiles %}
+<meta charset="utf-8">
 <html>
   <head>
     <title>{% block head_title %}{% endblock %}</title>
 
     <meta charset="UTF-8" />
 
+    <!-- CSS -->
+    <link href="{% static 'css/main.css' %}" rel="stylesheet" type="text/css">
+
     <!-- React -->
     <script src="//npmcdn.com/react@15.3.0/dist/react.min.js"></script>
     <script src="//npmcdn.com/react-dom@15.3.0/dist/react-dom.min.js"></script>
-    <script src="//npmcdn.com/babel-core@5.8.38/browser.min.js"></script>
 
-    <!-- D3 -->
-    <script src="//d3js.org/d3.v4.min.js"></script>
 
-    <style>
+    <svg width="960" height="500"></svg>
+    <script type="text/javascript" src="{% static 'js/d3.min.js' %}"></script>
 
-      /* Make the chart container fill the page using CSS. */
-      #chart {
-        position: fixed;
-        left: 0px;
-        right: 0px;
-        top: 0px;
-        bottom: 0px;
-      }
-    </style>
 
-  </head>
-  <body>
+    <script>
 
-    <div id="chart"></div>
+var svg = d3.select("svg"),
+    margin = {top: 20, right: 20, bottom: 30, left: 50},
+    width = +svg.attr("width") - margin.left - margin.right,
+    height = +svg.attr("height") - margin.top - margin.bottom,
+    g = svg.append("g").attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-    <script type="text/babel">
+var parseTime = d3.timeParse("%d-%b-%y");
 
-      var MyD3Vis = React.createClass({
+var x = d3.scaleTime()
+    .rangeRound([0, width]);
 
-        render: function() {
-          return (
-            <div>
-              <svg width={this.props.width}
-                   height={this.props.height}
-                   ref="container">
-              </svg>
-            </div>
-          );
-        },
+var y = d3.scaleLinear()
+    .rangeRound([height, 0]);
 
-        componentDidMount: function() {
-          this.container = d3.select(ReactDOM.findDOMNode(this.refs.container));
+var line = d3.line()
+    .x(function(d) { return x(d.date); })
+    .y(function(d) { return y(d.close); });
 
-          this.shouldComponentUpdate(this.props);
 
-          this.interval = setInterval(function (){
-            console.log("D3 graphic active at " + new Date());
-          }, 1000);
-        },
+var data = {{ data|safe }};
 
-        shouldComponentUpdate() {
-          this.renderCircles();
-          this.renderLines();
-        },
+d3.tsv("{% static 'js/data.tsv' %}", function(d) {
+  d.date = parseTime(d.date);
+  d.close = +d.close;
+  return d;
+}, function(error, data) {
+  if (error) throw error;
 
-        renderCircles: function (){
-          var circles = this.container
-            .selectAll("circle")
-              .data(this.props.data);
-          circles.exit().remove();
-          circles
-            .enter().append("circle")
-              .attr("r", 50)
-            .merge(circles)
-              .transition().duration(800)
-              .attr("cx", function (d){ return d.x; })
-              .attr("cy", function (d){ return d.y; });
-        },
+  x.domain(d3.extent(data, function(d) { return d.date; }));
+  y.domain(d3.extent(data, function(d) { return d.close; }));
 
-        renderLines: function (){
-          var {width, height} = this.props;
-          var lines = this.container.selectAll("line").data([
-            {x1: 0, y1: 0, x2: width, y2: height},
-            {x1: 0, y1: height, x2: width, y2: 0}
-          ]);
-          lines.enter()
-            .append("line")
-              .style("stroke-width", 50)
-              .style("stroke-opacity", 0.4)
-              .style("stroke", "black")
-            .merge(lines)
-              .attr("x1", function (d) { return d.x1; })
-              .attr("y1", function (d) { return d.y1; })
-              .attr("x2", function (d) { return d.x2; })
-              .attr("y2", function (d) { return d.y2; });
-        },
-        componentWillUnmount: function (){
-          clearInterval(this.interval);
-        }
-      });
+  g.append("g")
+      .attr("transform", "translate(0," + height + ")")
+      .call(d3.axisBottom(x))
+    .select(".domain")
+      .remove();
 
-      var width = 200,
-          height = 200,
-          data = [
-            { x: 50, y: 50 },
-            { x: 100, y: 100 }
-          ],
-          show = true;
+  g.append("g")
+      .call(d3.axisLeft(y))
+    .append("text")
+      .attr("fill", "#000")
+      .attr("transform", "rotate(-90)")
+      .attr("y", 6)
+      .attr("dy", "0.71em")
+      .attr("text-anchor", "end")
+      .text("Price ($)");
 
-      function render(){
+  g.append("path")
+      .datum(data)
+      .attr("fill", "none")
+      .attr("stroke", "steelblue")
+      .attr("stroke-linejoin", "round")
+      .attr("stroke-linecap", "round")
+      .attr("stroke-width", 1.5)
+      .attr("d", line);
+});
 
-        var chartDiv = document.getElementById("chart");
+</script>
 
-        width = chartDiv.clientWidth;
-        height = chartDiv.clientHeight;
 
-        if(show){
-          ReactDOM.render(
-            <MyD3Vis width={width} height={height} data={data} />,
-            chartDiv
-          );
-        } else {
-          ReactDOM.render(
-            <h1>Press any key to show graphic.</h1>,
-            chartDiv
-          );
-        }
 
-      }
 
-      render();
-
-      setInterval(function (){
-        data[0].x = Math.round(Date.now() / 50 % width);
-        data[0].y = Math.round(Date.now() / 10 % height);
-        data[1].x = Math.round(Date.now() / 60 % width);
-        data[1].y = Math.round(Date.now() / 70 % height);
-        render();
-      }, 1000);
-
-      window.addEventListener("resize", render);
-
-      window.addEventListener("keyup", function(){
-        show = !show;
-        render();
-      });
-    </script>
   </body>
+
+<script type="text/javascript" src="{% static 'js/main.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/vendor/jquery-1.11.2.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/vendor/bootstrap.min.js' %}"></script>
 </html>
