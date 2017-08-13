@@ -39,14 +39,16 @@ var line = d3.line()
     .y(function(d) { return y(d.close); });
 
 
-var data = {{ data|safe }};
+// var data = {{ data|safe }};
 
-d3.tsv("{% static 'js/data.tsv' %}", function(d) {
+d3.json("{% url "load_data" %}", function(d) {
   d.date = parseTime(d.date);
   d.close = +d.close;
   return d;
 }, function(error, data) {
   if (error) throw error;
+
+  alert(d);
 
   x.domain(d3.extent(data, function(d) { return d.date; }));
   y.domain(d3.extent(data, function(d) { return d.close; }));
