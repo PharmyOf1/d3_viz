@@ -1,7 +1,6 @@
 import requests, os
 from requests_ntlm import HttpNtlmAuth
 from .MDLZHive import ConnectHive
-from .creds import pw
 import pandas as pd
 import impala.dbapi
 
