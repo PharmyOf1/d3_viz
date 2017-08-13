@@ -18,3 +18,5 @@ build/
 tests/report/
 *creds.py
 creds.py
+*creds*
+
