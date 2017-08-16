@@ -8,12 +8,18 @@ import json
 def home(request):
     return render(request, "d3/index.html", {})
 
+
+def dashboard(request):
+    return render(request, "d3/dashboard.html", {})
+
 def load_data(request):
     hive = MDLZHive.ConnectHive(database='sales_reporting')
     q = hive.execute("""SELECT fiscal_day, sum(total_gross_revenue) as revenue
                         FROM daily_store_sku_transactional_dsc
                         WHERE fiscal_day > '2017-01-01'
+                        AND   fiscal_day < '2017-07-01'
                         AND distribution_channel_id = 45
+                        AND store_id > 0
                         GROUP BY fiscal_day
                        """)
 

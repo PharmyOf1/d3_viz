@@ -23,18 +23,21 @@
   z-index: 2000;
   position: fixed;
   margin: auto;
-  top: 12px;
+  /*top: 12px;*/
+  top: 0px;
   left: 0;
   right: 0;
   bottom: 0;
   width: 200px;
-  height: 50px;
+  /*height: 50px;*/
+  height: 100px;
   overflow: hidden;
 
+  background-image: url("https://upload.wikimedia.org/wikipedia/commons/thumb/c/c7/Mondelez_international_2012_logo.svg/1200px-Mondelez_international_2012_logo.svg.png");
+  background-size: 100%;
+  background-position: 50% -25%;
+  background-repeat: no-repeat;
 
-  /*background-image: url("https://upload.wikimedia.org/wikipedia/commons/thumb/c/c7/Mondelez_international_2012_logo.svg/1200px-Mondelez_international_2012_logo.svg.png");
-  background-size: 50px 50px;
-  background-repeat: no-repeat;*/
 }
 
 .pace .pace-progress {
@@ -60,18 +63,22 @@
   right: 100%;
   margin-right: -7px;
   width: 93%;
-  top: 7px;
+  top: 60px;
   height: 14px;
   font-size: 12px;
-  background: #29d;
-  color: #29d;
-  line-height: 60px;
+  background: #3A247A;
+  color: #E2003B;
+  line-height: 40px;
   font-weight: bold;
   font-family: Helvetica, Arial, "Lucida Grande", sans-serif;
 
   -webkit-box-shadow: 120px 0 #fff, 240px 0 #fff;
   -ms-box-shadow: 120px 0 #fff, 240px 0 #fff;
   box-shadow: 120px 0 #fff, 240px 0 #fff;
+
+
+
+
 }
 
 .pace .pace-progress:after {
@@ -83,6 +90,8 @@
   right: 0;
   padding-right: 16px;
   top: 4px;
+
+
 }
 
 .pace .pace-progress[data-progress-text="0%"]:after { right: -200px }
@@ -191,10 +200,13 @@
 .pace .pace-activity {
   position: absolute;
   width: 100%;
-  height: 28px;
+  /*height: 28px;*/
+  height: 100px;
   z-index: 2001;
-  box-shadow: inset 0 0 0 2px #29d, inset 0 0 0 7px #FFF;
-  border-radius: 10px;
+  /*box-shadow: inset 0 0 0 2px #3A247A, inset 0 0 0 7px #FFF;*/
+  /*border-radius: 10px;*/
+
+
 }
 
 .pace.pace-inactive {
