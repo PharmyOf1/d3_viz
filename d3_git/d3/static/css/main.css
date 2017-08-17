@@ -10,3 +10,18 @@
      stroke: steelblue;
      stroke-width: 2px;
    }
+
+.mdlz_logo {
+  height:auto;
+  width:110px;
+  margin-left:20px;
+}
+
+.mdlz_logo img {
+      height: 100%;
+      width: 100%;
+}
+
+.area_chart {
+  
+}

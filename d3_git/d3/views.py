@@ -8,9 +8,14 @@ import json
 def home(request):
     return render(request, "d3/index.html", {})
 
+def p_index(request):
+    return render(request, "d3/pages/index.html", {})
 
-def dashboard(request):
-    return render(request, "d3/dashboard.html", {})
+def p_index(request):
+    return render(request, "d3/pages/index.html", {})
+
+def data(request):
+    return render(request, "d3/data.html", {})
 
 def load_data(request):
     hive = MDLZHive.ConnectHive(database='sales_reporting')
