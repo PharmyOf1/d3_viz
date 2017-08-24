@@ -1,2 +1,4 @@
-{% extends "base.html" %}
-{% block head_title %}MDLZ Sales Reporting Viz{% endblock %}
+date,close<br>
+{% for row in data %}
+{{row.0}},{{row.1}}<br>
+{% endfor %}

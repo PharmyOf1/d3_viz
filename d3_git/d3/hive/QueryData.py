@@ -22,13 +22,18 @@ class ConnectiDeploy(object):
             for block in r.iter_content(1024):
                 handle.write(block)
 
-# if __name__ == '__main__':
-#     user, pwd = "krft\\una0464", pw
-#     #i = ConnectiDeploy(user,pwd)
-#     #status, slc = i.get_slc()
-#     #print (status)
-#     hive = ConnectHive(database='hrm_ds')
-#     slc = hive.execute("""SELECT * from sharp_master_data_historical_pub
-#                           WHERE lower(last_name) like '%blanche%'
-#                        """)
-#     print (slc)
+if __name__ == '__main__':
+    # user, pwd = "krft\\una0464", pw
+    #i = ConnectiDeploy(user,pwd)
+    #status, slc = i.get_slc()
+    #print (status)
+    hive = ConnectHive(database='sales_reporting')
+    q = hive.execute("""SELECT fiscal_day, sum(total_gross_revenue) as revenue
+                        FROM daily_store_sku_transactional_dsc
+                        WHERE fiscal_day > '2017-01-01'
+                        AND   fiscal_day < '2017-07-01'
+                        AND distribution_channel_id = 45
+                        AND store_id > 0
+                        GROUP BY fiscal_day
+                       """)
+    q.to_csv('sales_daily_data_ytd.csv', header=False, index=False)

@@ -3,34 +3,34 @@ $(function() {
     Morris.Area({
         element: 'morris-area-chart',
         data: [{
-            period: '2010 Q1',
+            period: '2015 Q1',
             Cases: 2666,
         }, {
-            period: '2010 Q2',
+            period: '2015 Q2',
             Cases: 2778,
         }, {
-            period: '2010 Q3',
+            period: '2015 Q3',
             Cases: 4912,
         }, {
-            period: '2010 Q4',
+            period: '2015 Q4',
             Cases: 3767,
         }, {
-            period: '2011 Q1',
+            period: '2016 Q1',
             Cases: 6810,
         }, {
-            period: '2011 Q2',
+            period: '2016 Q2',
             Cases: 5670,
         }, {
-            period: '2011 Q3',
+            period: '2016 Q3',
             Cases: 4820,
         }, {
-            period: '2011 Q4',
+            period: '2016 Q4',
             Cases: 15073,
         }, {
-            period: '2012 Q1',
+            period: '2017 Q1',
             Cases: 10687,
         }, {
-            period: '2012 Q2',
+            period: '2017 Q2',
             Cases: 8432,
         }],
         xkey: 'period',
@@ -44,14 +44,14 @@ $(function() {
     Morris.Donut({
         element: 'morris-donut-chart',
         data: [{
-            label: "Download Sales",
-            value: 12
+            label: "Misc %",
+            value: 32
         }, {
-            label: "In-Store Sales",
-            value: 30
+            label: "Drive %",
+            value: 15
         }, {
-            label: "Mail-Order Sales",
-            value: 20
+            label: "Merch. %",
+            value: 53
         }],
         resize: true
     });

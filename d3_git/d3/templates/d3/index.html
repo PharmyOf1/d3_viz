@@ -10,8 +10,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
+    <link rel="shortcut icon" href="{%  static 'favicon.png' %}">
 
-    <title>Test</title>
+    <title>Sales Strategy Dashboard</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet" type="text/css">
@@ -339,7 +340,7 @@
                                 </div>
                                 <div class="col-xs-9 text-right">
                                     <div class="huge">26</div>
-                                    <div>New Comments!</div>
+                                    <div>ALERTS</div>
                                 </div>
                             </div>
                         </div>
@@ -355,7 +356,7 @@
                                 </div>
                                 <div class="col-xs-9 text-right">
                                     <div class="huge">12</div>
-                                    <div>New Tasks!</div>
+                                    <div>EXPORT DATA</div>
                                 </div>
                             </div>
                         </div>
@@ -371,7 +372,7 @@
                                 </div>
                                 <div class="col-xs-9 text-right">
                                     <div class="huge">124</div>
-                                    <div>New Orders!</div>
+                                    <div>ORDER TRENDS</div>
                                 </div>
                             </div>
                         </div>
@@ -387,7 +388,7 @@
                                 </div>
                                 <div class="col-xs-9 text-right">
                                     <div class="huge">13</div>
-                                    <div>Support Tickets!</div>
+                                    <div>ACTION ITEMS</div>
                                 </div>
                             </div>
                         </div>
@@ -400,7 +401,7 @@
                 <div class="col-lg-8">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            <i class="fa fa-bar-chart-o fa-fw"></i> Area Chart Example
+                            <i class="fa fa-bar-chart-o fa-fw"></i> Sales Trends
                             <div class="pull-right">
                                 <div class="btn-group">
                                     <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">
@@ -546,48 +547,48 @@
                 <div class="col-lg-4">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            <i class="fa fa-bell fa-fw"></i> Notifications Panel
+                            <i class="fa fa-bell fa-fw"></i> Workload Model Alerts
                         </div>
                         <!-- /.panel-heading -->
                         <div class="panel-body">
                             <div class="list-group">
                                 <a href="#" class="list-group-item">
-                                    <i class="fa fa-comment fa-fw"></i> New Comment
+                                    <i class="fa fa-comment fa-fw"></i> SR Exceeded Variance Threshold
                                     <span class="pull-right text-muted small"><em>4 minutes ago</em>
                                     </span>
                                 </a>
                                 <a href="#" class="list-group-item">
-                                    <i class="fa fa-twitter fa-fw"></i> 3 New Followers
+                                    <i class="fa fa-twitter fa-fw"></i> Manager Changed WLM
                                     <span class="pull-right text-muted small"><em>12 minutes ago</em>
                                     </span>
                                 </a>
                                 <a href="#" class="list-group-item">
-                                    <i class="fa fa-envelope fa-fw"></i> Message Sent
+                                    <i class="fa fa-envelope fa-fw"></i> Manager Changed WLM
                                     <span class="pull-right text-muted small"><em>27 minutes ago</em>
                                     </span>
                                 </a>
                                 <a href="#" class="list-group-item">
-                                    <i class="fa fa-tasks fa-fw"></i> New Task
+                                    <i class="fa fa-tasks fa-fw"></i> SR Exceeded Variance Threshold
                                     <span class="pull-right text-muted small"><em>43 minutes ago</em>
                                     </span>
                                 </a>
                                 <a href="#" class="list-group-item">
-                                    <i class="fa fa-upload fa-fw"></i> Server Rebooted
+                                    <i class="fa fa-upload fa-fw"></i> SR Logged 80% Misc
                                     <span class="pull-right text-muted small"><em>11:32 AM</em>
                                     </span>
                                 </a>
                                 <a href="#" class="list-group-item">
-                                    <i class="fa fa-bolt fa-fw"></i> Server Crashed!
+                                    <i class="fa fa-bolt fa-fw"></i> SR Logged 82% Misc
                                     <span class="pull-right text-muted small"><em>11:13 AM</em>
                                     </span>
                                 </a>
                                 <a href="#" class="list-group-item">
-                                    <i class="fa fa-warning fa-fw"></i> Server Not Responding
+                                    <i class="fa fa-warning fa-fw"></i> SR Logged 76% Misc
                                     <span class="pull-right text-muted small"><em>10:57 AM</em>
                                     </span>
                                 </a>
                                 <a href="#" class="list-group-item">
-                                    <i class="fa fa-shopping-cart fa-fw"></i> New Order Placed
+                                    <i class="fa fa-shopping-cart fa-fw"></i> Manager Changed WLM
                                     <span class="pull-right text-muted small"><em>9:49 AM</em>
                                     </span>
                                 </a>
@@ -605,7 +606,7 @@
                     <!-- /.panel -->
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            <i class="fa fa-bar-chart-o fa-fw"></i> Donut Chart Example
+                            <i class="fa fa-bar-chart-o fa-fw"></i> Average In-Store Breakout
                         </div>
                         <div class="panel-body">
                             <div id="morris-donut-chart"></div>
@@ -614,122 +615,7 @@
                         <!-- /.panel-body -->
                     </div>
                     <!-- /.panel -->
-                    <div class="chat-panel panel panel-default">
-                        <div class="panel-heading">
-                            <i class="fa fa-comments fa-fw"></i> Chat
-                            <div class="btn-group pull-right">
-                                <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">
-                                    <i class="fa fa-chevron-down"></i>
-                                </button>
-                                <ul class="dropdown-menu slidedown">
-                                    <li>
-                                        <a href="#">
-                                            <i class="fa fa-refresh fa-fw"></i> Refresh
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <i class="fa fa-check-circle fa-fw"></i> Available
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <i class="fa fa-times fa-fw"></i> Busy
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <i class="fa fa-clock-o fa-fw"></i> Away
-                                        </a>
-                                    </li>
-                                    <li class="divider"></li>
-                                    <li>
-                                        <a href="#">
-                                            <i class="fa fa-sign-out fa-fw"></i> Sign Out
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                        <!-- /.panel-heading -->
-                        <div class="panel-body">
-                            <ul class="chat">
-                                <li class="left clearfix">
-                                    <span class="chat-img pull-left">
-                                        <img src="http://placehold.it/50/55C1E7/fff" alt="User Avatar" class="img-circle" />
-                                    </span>
-                                    <div class="chat-body clearfix">
-                                        <div class="header">
-                                            <strong class="primary-font">Jack Sparrow</strong>
-                                            <small class="pull-right text-muted">
-                                                <i class="fa fa-clock-o fa-fw"></i> 12 mins ago
-                                            </small>
-                                        </div>
-                                        <p>
-                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum ornare dolor, quis ullamcorper ligula sodales.
-                                        </p>
-                                    </div>
-                                </li>
-                                <li class="right clearfix">
-                                    <span class="chat-img pull-right">
-                                        <img src="http://placehold.it/50/FA6F57/fff" alt="User Avatar" class="img-circle" />
-                                    </span>
-                                    <div class="chat-body clearfix">
-                                        <div class="header">
-                                            <small class=" text-muted">
-                                                <i class="fa fa-clock-o fa-fw"></i> 13 mins ago</small>
-                                            <strong class="pull-right primary-font">Bhaumik Patel</strong>
-                                        </div>
-                                        <p>
-                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum ornare dolor, quis ullamcorper ligula sodales.
-                                        </p>
-                                    </div>
-                                </li>
-                                <li class="left clearfix">
-                                    <span class="chat-img pull-left">
-                                        <img src="http://placehold.it/50/55C1E7/fff" alt="User Avatar" class="img-circle" />
-                                    </span>
-                                    <div class="chat-body clearfix">
-                                        <div class="header">
-                                            <strong class="primary-font">Jack Sparrow</strong>
-                                            <small class="pull-right text-muted">
-                                                <i class="fa fa-clock-o fa-fw"></i> 14 mins ago</small>
-                                        </div>
-                                        <p>
-                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum ornare dolor, quis ullamcorper ligula sodales.
-                                        </p>
-                                    </div>
-                                </li>
-                                <li class="right clearfix">
-                                    <span class="chat-img pull-right">
-                                        <img src="http://placehold.it/50/FA6F57/fff" alt="User Avatar" class="img-circle" />
-                                    </span>
-                                    <div class="chat-body clearfix">
-                                        <div class="header">
-                                            <small class=" text-muted">
-                                                <i class="fa fa-clock-o fa-fw"></i> 15 mins ago</small>
-                                            <strong class="pull-right primary-font">Bhaumik Patel</strong>
-                                        </div>
-                                        <p>
-                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum ornare dolor, quis ullamcorper ligula sodales.
-                                        </p>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-                        <!-- /.panel-body -->
-                        <div class="panel-footer">
-                            <div class="input-group">
-                                <input id="btn-input" type="text" class="form-control input-sm" placeholder="Type your message here..." />
-                                <span class="input-group-btn">
-                                    <button class="btn btn-warning btn-sm" id="btn-chat">
-                                        Send
-                                    </button>
-                                </span>
-                            </div>
-                        </div>
-                        <!-- /.panel-footer -->
-                    </div>
+
                     <!-- /.panel .chat-panel -->
                 </div>
                 <!-- /.col-lg-4 -->
@@ -740,6 +626,75 @@
 
     </div>
     <!-- /#wrapper -->
+
+
+<script>
+    var margin = {top: 20, right: 20, bottom: 30, left: 50},
+        width = 960 - margin.left - margin.right,
+        height = 500 - margin.top - margin.bottom;
+
+    // parse the date / time
+    var parseTime = d3.timeParse("%Y-%m-%d");
+
+    // set the ranges
+    var x = d3.scaleTime().range([0, width]);
+    var y = d3.scaleLinear().range([height, 0]);
+
+    // define the line
+    var area = d3.area()
+        .x(function(d) { return x(d.date); })
+        .y1(function(d) { return y(d.close); });
+
+    // append the svg obgect to the body of the page
+    // appends a 'group' element to 'svg'
+    // moves the 'group' element to the top left margin
+    var svg = d3.select(".area_chart").append("svg")
+        .attr("width", width + margin.left + margin.right)
+        .attr("height", height + margin.top + margin.bottom)
+      .append("g")
+        .attr("transform",
+              "translate(" + margin.left + "," + margin.top + ")");
+
+    // Get the data
+    d3.csv('{% static "data/sales_daily_data_ytd.csv" %}', function(error, data) {
+      if (error) throw error;
+      // format the data
+      data.forEach(function(d) {
+          d.date = parseTime(d.date);
+          d.close = +d.close;
+      });
+
+      // Scale the range of the data
+      x.domain(d3.extent(data, function(d) { return d.date; }));
+      y.domain([0, d3.max(data, function(d) { return d.close; })]);
+      area.y0(y(0));
+
+      // Add the valueline path.
+      svg.append("path")
+          .data([data])
+          .attr("fill", "steelblue")
+          .attr("d", area);
+
+      // Add the X Axis
+      svg.append("g")
+          .attr("transform", "translate(0," + height + ")")
+          .call(d3.axisBottom(x));
+
+      // Add the Y Axis
+      svg.append("g")
+      .call(d3.axisLeft(y))
+      .append("text")
+        .attr("fill", "#000")
+        .attr("transform", "rotate(-90)")
+        .attr("y", 6)
+        .attr("dy", "0.71em")
+        .attr("text-anchor", "end")
+        .text("Sales (CSE)");
+
+
+    });
+</script>
+
 
     <!-- jQuery -->
     <script type="text/javascript" src="{% static 'js/vendor/jquery-1.11.2.min.js' %}"></script>
