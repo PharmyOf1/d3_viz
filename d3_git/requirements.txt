@@ -8,7 +8,7 @@ idna==2.5
 impyla==0.14.0
 kerberos==1.2.5
 ntlm-auth==1.0.5
-numpy==1.13.1
+numpy==1.21.0
 ordereddict==1.1
 pandas==0.20.3
 ply==3.10
